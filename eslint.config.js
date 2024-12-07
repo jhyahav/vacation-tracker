@@ -2,6 +2,7 @@ import globals from "globals"
 import pluginJs from "@eslint/js"
 import tseslint from "typescript-eslint"
 import pluginReact from "eslint-plugin-react"
+import hooksPlugin from "eslint-plugin-react-hooks"
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
@@ -32,6 +33,16 @@ export default [
       "react/self-closing-comp": "error",
       "react/jsx-no-useless-fragment": "error",
       "@typescript-eslint/consistent-type-imports": "error",
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": "error",
+    },
+  },
+  {
+    plugins: {
+      "react-hooks": hooksPlugin,
+    },
+    rules: {
+      ...hooksPlugin.configs.recommended.rules,
     },
   },
 ]
