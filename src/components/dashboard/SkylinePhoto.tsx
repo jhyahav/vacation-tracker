@@ -1,7 +1,7 @@
 import type { FC } from "react"
 import { Card, CardMedia, Skeleton } from "@mui/material"
 
-import { useUnsplashPhoto } from "../hooks/queries/useUnsplashPhoto"
+import { useUnsplashPhoto } from "../../hooks/queries/useUnsplashPhoto"
 
 type Props = { cityName: string }
 
