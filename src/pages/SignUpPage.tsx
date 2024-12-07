@@ -7,21 +7,20 @@ import { StyledLink } from "../components/styledComponents"
 import { useAuth } from "../global-state/AuthContext"
 import { useRedirectToDashboard } from "../hooks/useRedirectToDashboard"
 
-export const LoginPage: FC = () => {
-  const { signIn } = useAuth()
+export const SignUpPage: FC = () => {
+  const { signUp } = useAuth()
 
   useRedirectToDashboard()
 
   return (
     <LogIn
-      handleSubmit={signIn}
-      loadingText="Logging in..."
-      shouldConfirmPassword={false}
-      title="Log In"
+      shouldConfirmPassword
+      handleSubmit={signUp}
+      loadingText="Registering..."
+      title="Sign Up"
     >
       <Typography>
-        Don&apos;t have an account yet?{" "}
-        <StyledLink to="/signup">Sign up now</StyledLink>
+        Already have an account? <StyledLink to="/login">Log in</StyledLink>
       </Typography>
     </LogIn>
   )
