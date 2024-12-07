@@ -1,6 +1,6 @@
 import type { FC } from "react"
 import { SkylinePhoto } from "./SkylinePhoto"
-import { useWeather } from "../hooks/queries/useWeather"
+import { useWeather } from "../hooks/queries/useWeatherQuery"
 import { WeatherWidget } from "./WeatherWidget"
 
 type Props = { cityName: string }
