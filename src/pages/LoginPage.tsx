@@ -13,7 +13,12 @@ export const LoginPage: FC = () => {
   useRedirectToDashboard()
 
   return (
-    <LogIn handleSubmit={signIn} shouldConfirmPassword={false} title="Log In">
+    <LogIn
+      handleSubmit={signIn}
+      loadingText="Logging in..."
+      shouldConfirmPassword={false}
+      title="Log In"
+    >
       <Typography>
         Don&apos;t have an account yet?{" "}
         <StyledLink to="/signup">Sign up now</StyledLink>
