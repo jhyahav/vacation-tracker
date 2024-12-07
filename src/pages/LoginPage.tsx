@@ -1,16 +1,12 @@
 import type { FC } from "react"
-import { Link } from "react-router-dom"
 
 import { Typography } from "@mui/material"
-import { styled } from "@mui/material/styles"
 
 import { LogIn } from "../components/auth/LogIn"
+import { StyledLink } from "../components/styledComponents"
 import { useAuth } from "../global-state/AuthContext"
 import { useRedirectToDashboard } from "../hooks/useRedirectToDashboard"
 
-const StyledLink = styled(Link)({
-  fontWeight: "bold",
-})
 export const LoginPage: FC = () => {
   const { signIn } = useAuth()
 
