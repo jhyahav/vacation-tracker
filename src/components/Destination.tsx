@@ -1,12 +1,12 @@
 import type { FC } from "react"
 import { SkylinePhoto } from "./SkylinePhoto"
-import { useWeather } from "../hooks/queries/useWeatherQuery"
+import { useWeatherQuery } from "../hooks/queries/useWeatherQuery"
 import { WeatherWidget } from "./WeatherWidget"
 
 type Props = { cityName: string }
 
 export const Destination: FC<Props> = ({ cityName }) => {
-  const { data, isLoading } = useWeather(cityName)
+  const { data, isLoading } = useWeatherQuery(cityName)
 
   const {
     main: { temp } = {},

@@ -25,7 +25,7 @@ const fetchWeather = async ({
   return response.json() as Promise<WeatherResponse>
 }
 
-export const useWeather = (query: string) => {
+export const useWeatherQuery = (query: string) => {
   return useQuery({
     queryKey: ["weather", query],
     queryFn: () => fetchWeather({ cityName: query }),
