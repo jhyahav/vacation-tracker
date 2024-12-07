@@ -1,14 +1,14 @@
 import type { FC } from "react"
 import { Card, CardMedia, Skeleton } from "@mui/material"
 
-import { useUnsplashPhotos } from "../hooks/queries/useUnsplashPhoto"
+import { useUnsplashPhoto } from "../hooks/queries/useUnsplashPhoto"
 
 type Props = { cityName: string }
 
 export const SkylinePhoto: FC<Props> = ({ cityName }) => {
   const query = `${cityName} skyline`
 
-  const { data: photo, isLoading } = useUnsplashPhotos(query)
+  const { data: photo, isLoading } = useUnsplashPhoto(query)
 
   return (
     <Card sx={{ width: 345, margin: "16px" }}>

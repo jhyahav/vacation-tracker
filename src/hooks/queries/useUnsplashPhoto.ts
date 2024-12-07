@@ -18,7 +18,7 @@ const fetchPhotos = async (query: string) => {
   return response.response.results[0]
 }
 
-export const useUnsplashPhotos = (query: string) => {
+export const useUnsplashPhoto = (query: string) => {
   return useQuery({
     queryKey: ["photos", query],
     queryFn: () => fetchPhotos(query),
