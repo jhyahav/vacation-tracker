@@ -9,7 +9,7 @@ export const LogOutButton: FC = () => {
   // The button shouldn't render if the user isn't logged in
   if (!user) return null
 
-  const handleClick = () => signOut()
+  const handleClick = async () => await signOut()
 
   return (
     <Button color="primary" variant="contained" onClick={handleClick}>
