@@ -3,15 +3,6 @@ import { Box } from "@mui/material"
 import { styled } from "@mui/material/styles"
 import type { ElementType } from "react"
 
-export const StyledPageContainer = styled(Box)(({ theme }) => ({
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  justifyContent: "center",
-  height: "100vh",
-  color: theme.palette.text.primary,
-}))
-
 type StyledBoxProps = BoxProps & {
   component?: ElementType
 }
