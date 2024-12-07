@@ -1,7 +1,7 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import "./App.css"
 import { AuthProvider } from "./global-state/AuthContext"
-import { AppPageContent } from "./AppPageContent"
+import { AppPageContent } from "./AppContent"
 import { createTheme, ThemeProvider } from "@mui/material"
 
 const queryClient = new QueryClient()
