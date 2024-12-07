@@ -1,39 +1,45 @@
 import type { FC } from "react"
 import { SkylinePhoto } from "./SkylinePhoto"
-import { useWeatherQuery } from "../hooks/queries/useWeatherQuery"
 import { WeatherWidget } from "./WeatherWidget"
+import { useCityData } from "../hooks/useCityData"
+import { Skeleton } from "@mui/material"
+import { ClockWidget } from "./ClockWidget"
 
 type Props = { cityName: string }
 
 export const Destination: FC<Props> = ({ cityName }) => {
-  const { data, isLoading } = useWeatherQuery(cityName)
-
   const {
-    main: { temp } = {},
-    weather: [{ main: conditions, description, icon }] = [{}],
-    sys: { country: countryCode } = {},
+    conditions,
+    countryName,
+    getTime,
+    isLoading,
     name,
-  } = data ?? {}
-
-  const regionNames = new Intl.DisplayNames(["en"], { type: "region" })
-  const countryName = countryCode ? regionNames.of(countryCode) : undefined
+    temp,
+    weatherDescription,
+    weatherIcon,
+  } = useCityData(cityName)
 
   return (
     <div>
-      {!isLoading ? (
-        <h1>
-          {name}, {countryName}
-        </h1>
-      ) : null}
+      {isLoading ? (
+        <Skeleton />
+      ) : (
+        <>
+          <h1>
+            {name}, {countryName}
+          </h1>
 
-      <SkylinePhoto cityName={cityName} />
-      <WeatherWidget
-        conditions={conditions}
-        description={description}
-        icon={icon}
-        isLoading={isLoading}
-        temp={temp}
-      />
+          {name ? <SkylinePhoto cityName={name} /> : null}
+          <WeatherWidget
+            conditions={conditions}
+            description={weatherDescription}
+            icon={weatherIcon}
+            isLoading={isLoading}
+            temp={temp}
+          />
+          <ClockWidget getTime={getTime} />
+        </>
+      )}
     </div>
   )
 }
