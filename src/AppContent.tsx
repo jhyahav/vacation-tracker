@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import { DashboardPage } from "./pages/DashboardPage"
 import { LoginPage } from "./pages/LoginPage"
 
-export const AppPageContent: FC = () => {
+export const AppContent: FC = () => {
   return (
     <Router>
       <Routes>
