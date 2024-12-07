@@ -1,4 +1,4 @@
-import { Destination } from "../components/Destination"
+import { Destination } from "../components/dashboard/Destination"
 
 export const DashboardPage = () => {
   return (

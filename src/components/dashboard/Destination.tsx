@@ -1,7 +1,7 @@
 import type { FC } from "react"
 import { SkylinePhoto } from "./SkylinePhoto"
 import { WeatherWidget } from "./WeatherWidget"
-import { useCityData } from "../hooks/useCityData"
+import { useCityData } from "../../hooks/useCityData"
 import { Skeleton } from "@mui/material"
 import { ClockWidget } from "./ClockWidget"
 
