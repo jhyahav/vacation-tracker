@@ -1,20 +1,19 @@
 import { useEffect, useMemo } from "react"
 
-import { Box, Typography } from "@mui/material"
+import { Box } from "@mui/material"
 import { styled } from "@mui/material/styles"
 
 import { useDashboard } from "../../global-state/DashboardContext"
 import { useAuth } from "../../global-state/AuthContext"
-
 import { Destination } from "./Destination"
+import { EmptyDashboard } from "./EmptyDashboard"
 
-const StyledEmptyDashboardBox = styled(Box)({
+const StyledDashboardContainer = styled(Box)({
   display: "flex",
+  flexWrap: "wrap",
   justifyContent: "center",
-  alignItems: "center",
-  flexDirection: "column",
-  padding: "1rem",
-  height: "80vh",
+  gap: "1rem",
+  margin: "1rem",
 })
 
 export const Dashboard = () => {
@@ -28,19 +27,22 @@ export const Dashboard = () => {
     }
   }, [email, updateEmail, user])
 
-  const destinations = useMemo(() => readDestinations(), [readDestinations])
+  const destinations = useMemo(
+    () => [...readDestinations()].reverse(),
+    [readDestinations]
+  )
 
   return destinations.length ? (
-    destinations.map((dest) => (
-      <Destination
-        key={dest.cityName}
-        cityName={dest.cityName}
-        notes={dest.notes}
-      />
-    ))
+    <StyledDashboardContainer>
+      {destinations.map((dest) => (
+        <Destination
+          key={dest.cityName}
+          cityName={dest.cityName}
+          notes={dest.notes}
+        />
+      ))}
+    </StyledDashboardContainer>
   ) : (
-    <StyledEmptyDashboardBox>
-      <Typography variant="h3">Add your first destination above!</Typography>
-    </StyledEmptyDashboardBox>
+    <EmptyDashboard />
   )
 }
