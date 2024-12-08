@@ -10,18 +10,13 @@ type Props = {
   temp: number | undefined
 }
 
-const WidgetContainer = styled(Box)(({ theme }) => ({
-  background: theme.palette.background.default,
-  borderRadius: theme.shape.borderRadius,
-  boxShadow: theme.shadows[3],
-  padding: theme.spacing(2),
+const WidgetContainer = styled(Box)({
   textAlign: "center",
-  width: 150,
-}))
+})
 
 const WeatherIcon = styled("img")({
-  width: 80,
-  height: 80,
+  width: 100,
+  height: 100,
   margin: "auto",
 })
 

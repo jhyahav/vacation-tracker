@@ -1,8 +1,28 @@
 import type { FC } from "react"
 import { useEffect, useState } from "react"
 
+import { Box, Typography } from "@mui/material"
+import { styled } from "@mui/material/styles"
+
 import Clock from "react-clock"
 import "react-clock/dist/Clock.css"
+
+const ClockContainer = styled(Box)({
+  display: "flex",
+  flexDirection: "column",
+  width: "fit-content",
+  justifyContent: "center",
+  alignItems: "center",
+  gap: 24,
+
+  " .react-clock__face": {
+    backgroundColor: "white",
+  },
+  " .react-clock__mark__number": {
+    color: "black",
+    fontSize: "0.8rem",
+  },
+})
 
 type Props = {
   getTime: () => Date
@@ -17,12 +37,12 @@ export const ClockWidget: FC<Props> = ({ getTime }) => {
     return () => {
       clearInterval(interval)
     }
-  }, [])
+  }, [getTime])
 
   return (
-    <div>
-      <Clock renderNumbers size={200} value={time} />
-      <p>Current time: {time.toLocaleTimeString()}</p>
-    </div>
+    <ClockContainer>
+      <Clock renderNumbers size={110} value={time} />
+      <Typography variant="body1">{time.toLocaleTimeString()}</Typography>
+    </ClockContainer>
   )
 }
