@@ -48,21 +48,21 @@ export const DashboardProvider: FC<Props> = ({ children }) => {
     saveToLocalStorage("vacation-destinations", state)
   }, [state])
 
-  const createDestination: DashboardFunction = ({ cityName, notes }) =>
+  const createDestination: DashboardFunction = ({ cityName }) =>
     email
       ? dispatch({
           type: DashboardActions.CREATE_DESTINATION,
-          payload: { email, cityName, notes },
+          payload: { email, cityName },
         })
       : null
 
   const readDestinations = () => (email ? (state[email] ?? []) : [])
 
-  const updateDestination: DashboardFunction = ({ cityName, notes }) =>
+  const updateDestination: DashboardFunction = ({ cityName }) =>
     email
       ? dispatch({
           type: DashboardActions.UPDATE_DESTINATION,
-          payload: { email, cityName, notes },
+          payload: { email, cityName },
         })
       : null
 
