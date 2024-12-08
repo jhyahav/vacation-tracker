@@ -4,7 +4,6 @@ import "react-toastify/dist/ReactToastify.css"
 
 import { createTheme, ThemeProvider } from "@mui/material"
 
-import "./App.css"
 import { AuthProvider } from "./global-state/AuthContext"
 import { DashboardProvider } from "./global-state/DashboardContext"
 import { AppContent } from "./AppContent"
