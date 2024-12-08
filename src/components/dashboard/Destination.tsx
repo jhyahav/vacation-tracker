@@ -37,9 +37,9 @@ const StyledWeatherTime = styled(Box)({
   justifyContent: "space-around",
 })
 
-type Props = { cityName: string; notes?: string }
+type Props = { cityName: string }
 
-export const Destination: FC<Props> = ({ cityName, notes }) => {
+export const Destination: FC<Props> = ({ cityName }) => {
   const {
     conditions,
     countryName,
@@ -89,7 +89,6 @@ export const Destination: FC<Props> = ({ cityName, notes }) => {
             />
             <ClockWidget getTime={getTime} />
           </StyledWeatherTime>
-          {notes}
         </CardContent>
       ) : null}
     </StyledCard>

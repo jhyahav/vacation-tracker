@@ -6,7 +6,7 @@ export const dashboardReducer = (
   state: EmailToDashboardData,
   action: DashboardAction
 ) => {
-  const { email, cityName, notes } = action.payload
+  const { email, cityName } = action.payload
   const userDestinations = state[action.payload.email] ?? []
 
   switch (action.type) {
@@ -21,7 +21,7 @@ export const dashboardReducer = (
       return {
         ...state,
         [email]: userDestinations.map((dest) =>
-          dest.cityName === cityName ? { cityName, notes } : dest
+          dest.cityName === cityName ? { cityName } : dest
         ),
       }
 

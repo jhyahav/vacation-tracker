@@ -35,11 +35,7 @@ export const Dashboard = () => {
   return destinations.length ? (
     <StyledDashboardContainer>
       {destinations.map((dest) => (
-        <Destination
-          key={dest.cityName}
-          cityName={dest.cityName}
-          notes={dest.notes}
-        />
+        <Destination key={dest.cityName} cityName={dest.cityName} />
       ))}
     </StyledDashboardContainer>
   ) : (
