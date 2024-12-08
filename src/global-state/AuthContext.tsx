@@ -11,7 +11,7 @@ import {
 
 import { auth } from "../services/firebase"
 
-interface AuthContextProps {
+type AuthContextProps = {
   user: User | null
   signUp: (email: string, password: string) => Promise<void>
   signIn: (email: string, password: string) => Promise<void>
