@@ -3,6 +3,7 @@ import pluginJs from "@eslint/js"
 import tseslint from "typescript-eslint"
 import pluginReact from "eslint-plugin-react"
 import hooksPlugin from "eslint-plugin-react-hooks"
+import pluginJest from "eslint-plugin-jest"
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
@@ -43,6 +44,20 @@ export default [
     },
     rules: {
       ...hooksPlugin.configs.recommended.rules,
+    },
+  },
+  {
+    files: ["**/*.spec.{js,jsx,ts,tsx}", "**/*.test.{js,jsx,ts,tsx}"],
+    plugins: { jest: pluginJest },
+    languageOptions: {
+      globals: pluginJest.environments.globals.globals,
+    },
+    rules: {
+      "jest/no-disabled-tests": "warn",
+      "jest/no-focused-tests": "error",
+      "jest/no-identical-title": "error",
+      "jest/prefer-to-have-length": "warn",
+      "jest/valid-expect": "error",
     },
   },
 ]

@@ -30,7 +30,12 @@ type Props = { isValid: boolean; label: string }
 
 export const PasswordRequirement: FC<Props> = ({ isValid, label }) => {
   return (
-    <StyledListItem key={label} isValid={isValid}>
+    <StyledListItem
+      key={label}
+      data-test-valid={isValid ? "valid" : "invalid"}
+      data-testid={label}
+      isValid={isValid}
+    >
       <StyledListItemIcon>
         <StyledCheckbox disabled checked={isValid} size="small" />
       </StyledListItemIcon>
