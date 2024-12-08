@@ -1,19 +1,11 @@
-import { Destination } from "../components/dashboard/Destination"
-import { useAuth } from "../global-state/AuthContext"
-import { LogOutButton } from "../components/auth/LogOutButton"
+import { Dashboard } from "../components/dashboard/Dashboard"
+import DashboardHeader from "../components/dashboard/DashboardHeader"
 
 export const DashboardPage = () => {
-  const { user } = useAuth()
-
-  return user ? (
+  return (
     <>
-      <LogOutButton />
-      {/* TODO: improve error handling */}
-      {/* <Destination cityName="thiscitydoesntexit" /> */}
-      <Destination cityName="Rome,US" />
-      <Destination cityName="Damascus" />
-      <Destination cityName="Miami" />
-      <Destination cityName="Jerusalem" />
+      <DashboardHeader />
+      <Dashboard />
     </>
-  ) : null
+  )
 }
