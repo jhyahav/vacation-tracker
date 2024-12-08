@@ -3,9 +3,7 @@ export type DestinationData = {
   notes?: string
 }
 
-export type DashboardData = DestinationData[]
-
-export type EmailToDashboardData = { [key: string]: DashboardData }
+export type EmailToDashboardData = { [key: string]: DestinationData[] }
 
 export type DashboardFunctionParams = {
   cityName: string

@@ -7,7 +7,7 @@ import {
   useState,
 } from "react"
 
-import type { DashboardData, DashboardFunction } from "../types"
+import type { DashboardFunction, DestinationData } from "../types"
 import { dashboardReducer } from "./dashboard-reducer/dashboardReducer"
 import {
   dashboardInitialState,
@@ -17,9 +17,10 @@ import { DashboardActions } from "./dashboard-reducer/dashboardActions"
 import { saveToLocalStorage } from "../utils/localStorage"
 
 type DashboardContextProps = {
+  email: string | null
   updateEmail: (email: string | null) => void
   createDestination: DashboardFunction
-  readDestinations: () => DashboardData
+  readDestinations: () => DestinationData[]
   updateDestination: DashboardFunction
   deleteDestination: DashboardFunction
 }
@@ -76,6 +77,7 @@ export const DashboardProvider: FC<Props> = ({ children }) => {
   return (
     <DashboardContext.Provider
       value={{
+        email,
         updateEmail,
         createDestination,
         readDestinations,

@@ -17,7 +17,7 @@ export const LogOutButton: FC = () => {
   }
 
   return (
-    <Button color="primary" variant="contained" onClick={handleClick}>
+    <Button color="secondary" variant="contained" onClick={handleClick}>
       Log Out
     </Button>
   )
