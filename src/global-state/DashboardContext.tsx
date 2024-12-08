@@ -4,7 +4,7 @@ import {
   useContext,
   useReducer,
   useEffect,
-  //   useState,
+  useState,
 } from "react"
 
 import type { DashboardData, DashboardFunction } from "../types"
@@ -17,9 +17,9 @@ import { DashboardActions } from "./dashboard-reducer/dashboardActions"
 import { saveToLocalStorage } from "../utils/localStorage"
 
 type DashboardContextProps = {
-  //   updateEmail: (email: string) => void
+  updateEmail: (email: string | null) => void
   createDestination: DashboardFunction
-  readDestinations: (email: string) => DashboardData
+  readDestinations: () => DashboardData
   updateDestination: DashboardFunction
   deleteDestination: DashboardFunction
 }
@@ -37,31 +37,46 @@ export const DashboardProvider: FC<Props> = ({ children }) => {
     localStorageInitializer
   )
 
-  //   const [email, setEmail] = useState<string | null>(null)
+  const [email, setEmail] = useState<string | null>(null)
 
-  //   const updateEmail = (newEmail: string) => {
-  //     if (newEmail !== email) setEmail(newEmail)
-  //   }
+  const updateEmail = (newEmail: string | null) => {
+    if (newEmail !== email) setEmail(newEmail)
+  }
 
   useEffect(() => {
     saveToLocalStorage("vacation-destinations", state)
   }, [state])
 
-  const createDestination: DashboardFunction = (params) =>
-    dispatch({ type: DashboardActions.CREATE_DESTINATION, payload: params })
+  const createDestination: DashboardFunction = ({ cityName, notes }) =>
+    email
+      ? dispatch({
+          type: DashboardActions.CREATE_DESTINATION,
+          payload: { email, cityName, notes },
+        })
+      : null
 
-  const readDestinations = (email: string) => state[email] ?? []
+  const readDestinations = () => (email ? (state[email] ?? []) : [])
 
-  const updateDestination: DashboardFunction = (params) =>
-    dispatch({ type: DashboardActions.UPDATE_DESTINATION, payload: params })
+  const updateDestination: DashboardFunction = ({ cityName, notes }) =>
+    email
+      ? dispatch({
+          type: DashboardActions.UPDATE_DESTINATION,
+          payload: { email, cityName, notes },
+        })
+      : null
 
-  const deleteDestination: DashboardFunction = (params) =>
-    dispatch({ type: DashboardActions.DELETE_DESTINATION, payload: params })
+  const deleteDestination: DashboardFunction = ({ cityName }) =>
+    email
+      ? dispatch({
+          type: DashboardActions.DELETE_DESTINATION,
+          payload: { email, cityName },
+        })
+      : null
 
   return (
     <DashboardContext.Provider
       value={{
-        // updateEmail,
+        updateEmail,
         createDestination,
         readDestinations,
         updateDestination,

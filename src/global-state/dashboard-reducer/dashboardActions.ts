@@ -11,5 +11,5 @@ type DashboardActionType =
 
 export type DashboardAction = {
   type: DashboardActionType
-  payload: DashboardFunctionParams
+  payload: { email: string } & DashboardFunctionParams
 }

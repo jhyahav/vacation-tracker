@@ -9,7 +9,7 @@ import { PasswordRequirementList } from "./PasswordRequirementList"
 
 type Props = {
   children?: ReactNode
-  handleSubmit: (username: string, password: string) => Promise<void>
+  handleSubmit: (email: string, password: string) => Promise<void>
   shouldConfirmPassword: boolean
   title: string
   loadingText: string
