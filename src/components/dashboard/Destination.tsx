@@ -20,6 +20,7 @@ import { useDashboard } from "../../global-state/DashboardContext"
 const StyledCard = styled(Card)(({ theme }) => ({
   maxWidth: 345,
   borderRadius: theme.shape.borderRadius * 2,
+  minHeight: 482,
 }))
 
 const StyledCardHeader = styled(CardHeader)({
@@ -59,9 +60,7 @@ export const Destination: FC<Props> = ({ cityName, notes }) => {
     // TODO: add toast notification
   }
 
-  return isLoading ? (
-    <Skeleton />
-  ) : (
+  return (
     <StyledCard sx={{ maxWidth: 345 }} variant="outlined">
       <StyledCardHeader
         action={
@@ -69,24 +68,26 @@ export const Destination: FC<Props> = ({ cityName, notes }) => {
             <CloseIcon />
           </IconButton>
         }
-        subheader={countryName}
-        title={name}
+        subheader={countryName ?? <Skeleton animation="wave" />}
+        title={name ?? <Skeleton animation="wave" />}
       />
 
-      {name ? <SkylinePhoto cityName={name} /> : null}
-      <CardContent>
-        <StyledWeatherTime>
-          <WeatherWidget
-            conditions={conditions}
-            description={weatherDescription}
-            icon={weatherIcon}
-            isLoading={isLoading}
-            temp={temp}
-          />
-          <ClockWidget getTime={getTime} />
-        </StyledWeatherTime>
-        {notes}
-      </CardContent>
+      <SkylinePhoto cityName={name} />
+      {name ? (
+        <CardContent>
+          <StyledWeatherTime>
+            <WeatherWidget
+              conditions={conditions}
+              description={weatherDescription}
+              icon={weatherIcon}
+              isLoading={isLoading}
+              temp={temp}
+            />
+            <ClockWidget getTime={getTime} />
+          </StyledWeatherTime>
+          {notes}
+        </CardContent>
+      ) : null}
     </StyledCard>
   )
 }
