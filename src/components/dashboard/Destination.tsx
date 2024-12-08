@@ -1,23 +1,37 @@
 import type { FC } from "react"
+import { IconButton, Skeleton } from "@mui/material"
+import CloseIcon from "@mui/icons-material/Close"
+
+import { useCityData } from "../../hooks/useCityData"
 import { SkylinePhoto } from "./SkylinePhoto"
 import { WeatherWidget } from "./WeatherWidget"
-import { useCityData } from "../../hooks/useCityData"
-import { Skeleton } from "@mui/material"
 import { ClockWidget } from "./ClockWidget"
+import { useDashboard } from "../../global-state/DashboardContext"
 
-type Props = { cityName: string }
+type Props = { cityName: string; notes?: string }
 
-export const Destination: FC<Props> = ({ cityName }) => {
+export const Destination: FC<Props> = ({ cityName, notes }) => {
   const {
     conditions,
     countryName,
     getTime,
     isLoading,
+    isError,
     name,
     temp,
     weatherDescription,
     weatherIcon,
   } = useCityData(cityName)
+
+  const { deleteDestination } = useDashboard()
+
+  const handleDelete = () => deleteDestination({ cityName })
+
+  if (isError) {
+    console.error(`Error fetching data for ${cityName}.`)
+    handleDelete()
+    // TODO: add toast notification
+  }
 
   return (
     <div>
@@ -25,6 +39,9 @@ export const Destination: FC<Props> = ({ cityName }) => {
         <Skeleton />
       ) : (
         <>
+          <IconButton onClick={handleDelete}>
+            <CloseIcon />
+          </IconButton>
           <h1>
             {name}, {countryName}
           </h1>
@@ -38,6 +55,7 @@ export const Destination: FC<Props> = ({ cityName }) => {
             temp={temp}
           />
           <ClockWidget getTime={getTime} />
+          {notes}
         </>
       )}
     </div>
