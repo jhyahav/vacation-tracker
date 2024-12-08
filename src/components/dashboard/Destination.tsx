@@ -1,4 +1,6 @@
 import type { FC } from "react"
+import { toast } from "react-toastify"
+
 import {
   Box,
   Card,
@@ -44,6 +46,7 @@ export const Destination: FC<Props> = ({ cityName, notes }) => {
     getTime,
     isLoading,
     isError,
+    error,
     name,
     temp,
     weatherDescription,
@@ -55,9 +58,10 @@ export const Destination: FC<Props> = ({ cityName, notes }) => {
   const handleDelete = () => deleteDestination({ cityName })
 
   if (isError) {
-    console.error(`Error fetching data for ${cityName}.`)
+    toast.error(`${cityName}: ${error?.message}`, {
+      toastId: `${error?.message}-${cityName}`,
+    })
     handleDelete()
-    // TODO: add toast notification
   }
 
   return (

@@ -1,5 +1,6 @@
 import type { ChangeEventHandler, KeyboardEvent } from "react"
 import { useState } from "react"
+import { toast } from "react-toastify"
 
 import { Box, Button, TextField } from "@mui/material"
 import { styled } from "@mui/material/styles"
@@ -7,6 +8,7 @@ import { styled } from "@mui/material/styles"
 import { useDashboard } from "../../global-state/DashboardContext"
 import { sanitizeCityName } from "../../utils/sanitizeCityName"
 import { LogOutButton } from "../auth/LogOutButton"
+import { capitalize } from "../../utils/capitalize"
 
 const HeaderContainer = styled(Box)(({ theme }) => ({
   display: "flex",
@@ -32,8 +34,13 @@ const DashboardHeader = () => {
 
   const handleAddDestination = () => {
     const processedCityName = sanitizeCityName(cityName)
-    // TODO: toast notification or alert if city already exists
     const isDuplicateCity = existingDestinations.includes(processedCityName)
+
+    if (isDuplicateCity) {
+      toast.error(
+        `${capitalize(processedCityName)} is already on your dashboard.`
+      )
+    }
 
     if (processedCityName && !isDuplicateCity) {
       createDestination({ cityName: processedCityName })
