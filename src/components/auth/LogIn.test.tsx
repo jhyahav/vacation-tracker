@@ -3,6 +3,7 @@ import { LogIn } from "./LogIn"
 
 jest.mock("../styledComponents", () => ({
   StyledFormBox: jest.fn(({ children }) => <form>{children}</form>),
+  StyledLogInContainer: jest.fn(({ children }) => <div>{children}</div>),
 }))
 
 jest.mock("./PasswordRequirementList", () => ({
