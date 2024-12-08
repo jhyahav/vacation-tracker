@@ -1,6 +1,7 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import "./App.css"
 import { AuthProvider } from "./global-state/AuthContext"
+import { DashboardProvider } from "./global-state/DashboardContext"
 import { AppContent } from "./AppContent"
 import { createTheme, ThemeProvider } from "@mui/material"
 
@@ -16,9 +17,11 @@ const App = () => {
   return (
     <ThemeProvider theme={darkTheme}>
       <AuthProvider>
-        <QueryClientProvider client={queryClient}>
-          <AppContent />
-        </QueryClientProvider>
+        <DashboardProvider>
+          <QueryClientProvider client={queryClient}>
+            <AppContent />
+          </QueryClientProvider>
+        </DashboardProvider>
       </AuthProvider>
     </ThemeProvider>
   )
