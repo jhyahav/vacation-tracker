@@ -41,8 +41,8 @@ Built responsively and performantly to empower you to instantly edit your list o
    npm install
 3. **Add your API keys to `.env`:**
    ```bash
-  VITE_UNSPLASH_ACCESS_KEY = "YOUR_ACCESS_KEY"
-  VITE_OPENWEATHERMAP_API_KEY = "YOUR_OPENWEATHERMAP_API_KEY"
+    VITE_UNSPLASH_ACCESS_KEY = "YOUR_ACCESS_KEY"
+    VITE_OPENWEATHERMAP_API_KEY = "YOUR_OPENWEATHERMAP_API_KEY"
 4. **Start the development server:**
    ```bash
    npm run dev
