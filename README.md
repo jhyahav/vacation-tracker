@@ -68,6 +68,12 @@ The `Context` API is suitable for managing app-wide state for destinations and u
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+## Code Splitting
+Since this app is relatively small and only has a few routes, although it would be possible (and fairly straightforward) to implement code splitting in the router, I opted not to do so.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
 ## Features
 
 * Email/password authentication powered by Firebase, with clear and secure password requirements enforced both client-side and server-side.
