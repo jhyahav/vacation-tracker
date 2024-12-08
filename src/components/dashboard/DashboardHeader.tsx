@@ -4,13 +4,14 @@ import { toast } from "react-toastify"
 
 import { Box, Button, TextField } from "@mui/material"
 import { styled } from "@mui/material/styles"
+import AddIcon from "@mui/icons-material/Add"
 
 import { useDashboard } from "../../global-state/DashboardContext"
 import { sanitizeCityName } from "../../utils/sanitizeCityName"
 import { LogOutButton } from "../auth/LogOutButton"
 import { capitalize } from "../../utils/capitalize"
 
-const HeaderContainer = styled(Box)(({ theme }) => ({
+const StyledHeaderContainer = styled(Box)(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   justifyContent: "space-between",
@@ -18,12 +19,15 @@ const HeaderContainer = styled(Box)(({ theme }) => ({
   backgroundColor: theme.palette.background.paper,
   boxShadow: theme.shadows[3],
   width: "100%",
+  position: "sticky",
+  top: 0,
+  zIndex: 10,
 }))
 
-const AddCityContainer = styled(Box)(({ theme }) => ({
+const StyledAddCityContainer = styled(Box)(({ theme }) => ({
   display: "flex",
   alignItems: "center",
-  gap: theme.spacing(1),
+  marginRight: theme.spacing(4),
 }))
 
 const DashboardHeader = () => {
@@ -58,8 +62,8 @@ const DashboardHeader = () => {
     setCityName(e.target.value)
 
   return (
-    <HeaderContainer>
-      <AddCityContainer>
+    <StyledHeaderContainer>
+      <StyledAddCityContainer>
         <TextField
           label="City Name"
           size="small"
@@ -74,11 +78,11 @@ const DashboardHeader = () => {
           variant="contained"
           onClick={handleAddDestination}
         >
-          Add City
+          <AddIcon />
         </Button>
-      </AddCityContainer>
+      </StyledAddCityContainer>
       <LogOutButton />
-    </HeaderContainer>
+    </StyledHeaderContainer>
   )
 }
 
