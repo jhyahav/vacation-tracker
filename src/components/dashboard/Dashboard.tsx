@@ -1,9 +1,21 @@
 import { useEffect, useMemo } from "react"
 
+import { Box, Typography } from "@mui/material"
+import { styled } from "@mui/material/styles"
+
 import { useDashboard } from "../../global-state/DashboardContext"
 import { useAuth } from "../../global-state/AuthContext"
 
 import { Destination } from "./Destination"
+
+const StyledEmptyDashboardBox = styled(Box)({
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  flexDirection: "column",
+  padding: "1rem",
+  height: "80vh",
+})
 
 export const Dashboard = () => {
   const { user } = useAuth()
@@ -27,6 +39,8 @@ export const Dashboard = () => {
       />
     ))
   ) : (
-    <div>Add your first destination above!</div>
+    <StyledEmptyDashboardBox>
+      <Typography variant="h3">Add your first destination above!</Typography>
+    </StyledEmptyDashboardBox>
   )
 }
