@@ -17,6 +17,7 @@ import { DashboardActions } from "./dashboard-reducer/dashboardActions"
 import { saveToLocalStorage } from "../utils/localStorage"
 
 type DashboardContextProps = {
+  email: string | null
   updateEmail: (email: string | null) => void
   createDestination: DashboardFunction
   readDestinations: () => DestinationData[]
@@ -76,6 +77,7 @@ export const DashboardProvider: FC<Props> = ({ children }) => {
   return (
     <DashboardContext.Provider
       value={{
+        email,
         updateEmail,
         createDestination,
         readDestinations,
