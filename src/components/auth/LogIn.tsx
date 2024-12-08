@@ -68,6 +68,7 @@ export const LogIn: FC<Props> = ({
       <TextField
         required
         label="Email"
+        slotProps={{ htmlInput: { "data-testid": "email" } }}
         type="email"
         value={email}
         variant="outlined"
@@ -76,6 +77,7 @@ export const LogIn: FC<Props> = ({
       <TextField
         required
         label="Password"
+        slotProps={{ htmlInput: { "data-testid": "password" } }}
         type="password"
         value={password}
         variant="outlined"
@@ -86,6 +88,7 @@ export const LogIn: FC<Props> = ({
           <TextField
             required
             label="Confirm Password"
+            slotProps={{ htmlInput: { "data-testid": "confirm-password" } }}
             type="password"
             value={confirmPassword}
             variant="outlined"
