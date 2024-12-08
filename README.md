@@ -19,7 +19,7 @@
 
 Vacation Tracker enables you to conveniently keep track of all the cities you've visited, plan to visit, or wish you could visit. The seamless signup and login process will have you adding cities to your dashboard in no time! 
 
-View live weather data, skyline photos, the current time, and your own personal notes on as many cities as you like.
+View live weather data, skyline photos, and the current time in as many cities as you like.
 
 Built responsively and performantly to empower you to instantly edit your list of destinations, at home or on the go. Want to stop and pick up where you left off? Your destinations are conveniently stored between sessions, so no need to leave the app open.
 
