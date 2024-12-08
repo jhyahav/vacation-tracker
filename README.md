@@ -3,7 +3,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/jhyahav/vacation-tracker">
-    <img src="public/icon.png" alt="vacation tracker icon" width="80" height="80">
+    <img src="public/icon.jpg" alt="vacation tracker icon" width="80" height="80">
   </a>
 
 <h3 align="center">Vacation Tracker</h3>
