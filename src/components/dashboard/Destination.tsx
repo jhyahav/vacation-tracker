@@ -1,5 +1,14 @@
 import type { FC } from "react"
-import { IconButton, Skeleton } from "@mui/material"
+import {
+  Box,
+  Card,
+  CardContent,
+  CardHeader,
+  cardHeaderClasses,
+  IconButton,
+  Skeleton,
+} from "@mui/material"
+import { styled } from "@mui/material/styles"
 import CloseIcon from "@mui/icons-material/Close"
 
 import { useCityData } from "../../hooks/useCityData"
@@ -7,6 +16,23 @@ import { SkylinePhoto } from "./SkylinePhoto"
 import { WeatherWidget } from "./WeatherWidget"
 import { ClockWidget } from "./ClockWidget"
 import { useDashboard } from "../../global-state/DashboardContext"
+
+const StyledCard = styled(Card)(({ theme }) => ({
+  maxWidth: 345,
+  borderRadius: theme.shape.borderRadius * 2,
+}))
+
+const StyledCardHeader = styled(CardHeader)({
+  [` .${cardHeaderClasses.content}`]: {
+    marginLeft: 40,
+  },
+})
+
+const StyledWeatherTime = styled(Box)({
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "space-around",
+})
 
 type Props = { cityName: string; notes?: string }
 
@@ -33,20 +59,23 @@ export const Destination: FC<Props> = ({ cityName, notes }) => {
     // TODO: add toast notification
   }
 
-  return (
-    <div>
-      {isLoading ? (
-        <Skeleton />
-      ) : (
-        <>
-          <IconButton onClick={handleDelete}>
+  return isLoading ? (
+    <Skeleton />
+  ) : (
+    <StyledCard sx={{ maxWidth: 345 }} variant="outlined">
+      <StyledCardHeader
+        action={
+          <IconButton aria-label="delete" onClick={handleDelete}>
             <CloseIcon />
           </IconButton>
-          <h1>
-            {name}, {countryName}
-          </h1>
+        }
+        subheader={countryName}
+        title={name}
+      />
 
-          {name ? <SkylinePhoto cityName={name} /> : null}
+      {name ? <SkylinePhoto cityName={name} /> : null}
+      <CardContent>
+        <StyledWeatherTime>
           <WeatherWidget
             conditions={conditions}
             description={weatherDescription}
@@ -55,9 +84,9 @@ export const Destination: FC<Props> = ({ cityName, notes }) => {
             temp={temp}
           />
           <ClockWidget getTime={getTime} />
-          {notes}
-        </>
-      )}
-    </div>
+        </StyledWeatherTime>
+        {notes}
+      </CardContent>
+    </StyledCard>
   )
 }
