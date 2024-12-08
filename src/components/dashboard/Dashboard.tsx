@@ -1,9 +1,20 @@
 import { useEffect, useMemo } from "react"
 
+import { Box } from "@mui/material"
+import { styled } from "@mui/material/styles"
+
 import { useDashboard } from "../../global-state/DashboardContext"
 import { useAuth } from "../../global-state/AuthContext"
-
 import { Destination } from "./Destination"
+import { EmptyDashboard } from "./EmptyDashboard"
+
+const StyledDashboardContainer = styled(Box)({
+  display: "flex",
+  flexWrap: "wrap",
+  justifyContent: "center",
+  gap: "1rem",
+  margin: "1rem",
+})
 
 export const Dashboard = () => {
   const { user } = useAuth()
@@ -16,17 +27,22 @@ export const Dashboard = () => {
     }
   }, [email, updateEmail, user])
 
-  const destinations = useMemo(() => readDestinations(), [readDestinations])
+  const destinations = useMemo(
+    () => [...readDestinations()].reverse(),
+    [readDestinations]
+  )
 
   return destinations.length ? (
-    destinations.map((dest) => (
-      <Destination
-        key={dest.cityName}
-        cityName={dest.cityName}
-        notes={dest.notes}
-      />
-    ))
+    <StyledDashboardContainer>
+      {destinations.map((dest) => (
+        <Destination
+          key={dest.cityName}
+          cityName={dest.cityName}
+          notes={dest.notes}
+        />
+      ))}
+    </StyledDashboardContainer>
   ) : (
-    <div>Add your first destination above!</div>
+    <EmptyDashboard />
   )
 }

@@ -9,6 +9,13 @@ type StyledBoxProps = BoxProps & {
   component?: ElementType
 }
 
+export const StyledLogInContainer = styled(Box)({
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  height: "100vh",
+})
+
 export const StyledFormBox = styled(Box)<StyledBoxProps>(({ theme }) => ({
   display: "flex",
   flexDirection: "column",

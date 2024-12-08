@@ -65,7 +65,7 @@ export const Destination: FC<Props> = ({ cityName, notes }) => {
   }
 
   return (
-    <StyledCard sx={{ maxWidth: 345 }} variant="outlined">
+    <StyledCard sx={{ width: 345 }} variant="outlined">
       <StyledCardHeader
         action={
           <IconButton aria-label="delete" onClick={handleDelete}>
