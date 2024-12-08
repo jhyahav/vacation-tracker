@@ -3,7 +3,7 @@ import { getCountryName } from "../utils/getCountryName"
 import { useWeatherQuery } from "./queries/useWeatherQuery"
 
 export const useCityData = (cityName: string) => {
-  const { data, isLoading, isError } = useWeatherQuery(cityName)
+  const { data, isLoading, isError, error } = useWeatherQuery(cityName)
 
   const {
     main: { temp } = {},
@@ -24,6 +24,7 @@ export const useCityData = (cityName: string) => {
     countryName,
     getTime,
     isError,
+    error,
     isLoading,
     name,
     temp,
