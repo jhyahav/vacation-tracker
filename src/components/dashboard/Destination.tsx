@@ -1,22 +1,13 @@
 import type { FC } from "react"
 import { toast } from "react-toastify"
 
-import {
-  Box,
-  Card,
-  CardContent,
-  CardHeader,
-  cardHeaderClasses,
-  IconButton,
-  Skeleton,
-} from "@mui/material"
+import { Card } from "@mui/material"
 import { styled } from "@mui/material/styles"
-import CloseIcon from "@mui/icons-material/Close"
 
-import { useCityData } from "../../hooks/useCityData"
+import { DestinationCardContent } from "./DestinationCardContent"
+import { DestinationCardHeader } from "./DestinationCardHeader"
 import { SkylinePhoto } from "./SkylinePhoto"
-import { WeatherWidget } from "./WeatherWidget"
-import { ClockWidget } from "./ClockWidget"
+import { useCityData } from "../../hooks/useCityData"
 import { useDashboard } from "../../global-state/DashboardContext"
 
 const StyledCard = styled(Card)(({ theme }) => ({
@@ -24,18 +15,6 @@ const StyledCard = styled(Card)(({ theme }) => ({
   borderRadius: theme.shape.borderRadius * 2,
   minHeight: 482,
 }))
-
-const StyledCardHeader = styled(CardHeader)({
-  [` .${cardHeaderClasses.content}`]: {
-    marginLeft: 40,
-  },
-})
-
-const StyledWeatherTime = styled(Box)({
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "space-around",
-})
 
 type Props = { cityName: string }
 
@@ -66,31 +45,21 @@ export const Destination: FC<Props> = ({ cityName }) => {
 
   return (
     <StyledCard sx={{ width: 345 }} variant="outlined">
-      <StyledCardHeader
-        action={
-          <IconButton aria-label="delete" onClick={handleDelete}>
-            <CloseIcon />
-          </IconButton>
-        }
-        subheader={countryName ?? <Skeleton animation="wave" />}
-        title={name ?? <Skeleton animation="wave" />}
+      <DestinationCardHeader
+        countryName={countryName}
+        handleDelete={handleDelete}
+        name={name}
       />
-
+      <DestinationCardContent
+        conditions={conditions}
+        getTime={getTime}
+        isLoading={isLoading}
+        name={name}
+        temp={temp}
+        weatherDescription={weatherDescription}
+        weatherIcon={weatherIcon}
+      />
       <SkylinePhoto cityName={name} />
-      {name ? (
-        <CardContent>
-          <StyledWeatherTime>
-            <WeatherWidget
-              conditions={conditions}
-              description={weatherDescription}
-              icon={weatherIcon}
-              isLoading={isLoading}
-              temp={temp}
-            />
-            <ClockWidget getTime={getTime} />
-          </StyledWeatherTime>
-        </CardContent>
-      ) : null}
     </StyledCard>
   )
 }
