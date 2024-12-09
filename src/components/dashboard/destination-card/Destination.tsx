@@ -50,6 +50,7 @@ export const Destination: FC<Props> = ({ cityName }) => {
         handleDelete={handleDelete}
         name={name}
       />
+      <SkylinePhoto cityName={name} />
       <DestinationCardContent
         conditions={conditions}
         getTime={getTime}
@@ -59,7 +60,6 @@ export const Destination: FC<Props> = ({ cityName }) => {
         weatherDescription={weatherDescription}
         weatherIcon={weatherIcon}
       />
-      <SkylinePhoto cityName={name} />
     </StyledCard>
   )
 }
