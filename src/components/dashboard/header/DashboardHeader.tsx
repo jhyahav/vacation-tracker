@@ -1,7 +1,7 @@
 import { Box } from "@mui/material"
 import { styled } from "@mui/material/styles"
 
-import { LogOutButton } from "../auth/LogOutButton"
+import { LogOutButton } from "../../auth/LogOutButton"
 import { AddCity } from "./AddCity"
 
 const StyledHeaderContainer = styled(Box)(({ theme }) => ({

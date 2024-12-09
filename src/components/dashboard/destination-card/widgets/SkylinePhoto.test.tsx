@@ -9,7 +9,7 @@ jest.mock("react-toastify", () => ({
   },
 }))
 
-jest.mock("../../hooks/queries/useUnsplashPhoto", () => ({
+jest.mock("../../../../hooks/queries/useUnsplashPhoto", () => ({
   useUnsplashPhoto: jest.fn(),
 }))
 

@@ -10,23 +10,23 @@ jest.mock("react-toastify", () => ({
   },
 }))
 
-jest.mock("../../hooks/useCityData", () => ({
+jest.mock("../../../hooks/useCityData", () => ({
   useCityData: jest.fn(),
 }))
 
-jest.mock("../../global-state/DashboardContext", () => ({
+jest.mock("../../../global-state/DashboardContext", () => ({
   useDashboard: jest.fn(),
 }))
 
-jest.mock("./SkylinePhoto", () => ({
+jest.mock("./widgets/SkylinePhoto", () => ({
   SkylinePhoto: jest.fn(() => <div data-testid="skyline-photo" />),
 }))
 
-jest.mock("./WeatherWidget", () => ({
+jest.mock("./widgets/WeatherWidget", () => ({
   WeatherWidget: jest.fn(() => <div data-testid="weather-widget" />),
 }))
 
-jest.mock("./ClockWidget", () => ({
+jest.mock("./widgets/ClockWidget", () => ({
   ClockWidget: jest.fn(() => <div data-testid="clock-widget" />),
 }))
 
