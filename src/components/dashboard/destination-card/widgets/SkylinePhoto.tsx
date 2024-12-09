@@ -3,7 +3,7 @@ import { toast } from "react-toastify"
 
 import { CardMedia, Skeleton } from "@mui/material"
 
-import { useUnsplashPhoto } from "../../hooks/queries/useUnsplashPhoto"
+import { useUnsplashPhoto } from "../../../../hooks/queries/useUnsplashPhoto"
 
 type Props = { cityName: string | undefined }
 
@@ -19,6 +19,7 @@ export const SkylinePhoto: FC<Props> = ({ cityName }) => {
   return isLoading || !cityName ? (
     <Skeleton
       animation="wave"
+      data-testid="photo-skeleton"
       height={194}
       variant="rectangular"
       width="100%"

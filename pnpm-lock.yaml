@@ -60,6 +60,9 @@ importers:
       '@types/jest':
         specifier: ^29.5.14
         version: 29.5.14
+      '@types/node':
+        specifier: ^22.10.1
+        version: 22.10.1
       '@types/react':
         specifier: ^18.3.12
         version: 18.3.14
@@ -117,6 +120,9 @@ importers:
       typescript-eslint:
         specifier: ^8.17.0
         version: 8.17.0(eslint@9.16.0)(typescript@5.6.3)
+      util:
+        specifier: ^0.12.5
+        version: 0.12.5
       vite:
         specifier: ^6.0.1
         version: 6.0.3(@types/node@22.10.1)
@@ -2082,6 +2088,10 @@ packages:
     resolution: {integrity: sha512-NGnrKwXzSms2qUUih/ILZ5JBqNTSa1+ZmP6flaIp6KmSElgE9qdndzS3cqjrDovwFdmwsGsLdeFgB6suw+1e9g==}
     engines: {node: '>= 0.4'}
 
+  is-arguments@1.1.1:
+    resolution: {integrity: sha512-8Q7EARjzEnKpt/PCD7e1cgUS0a6X8u5tdSiMqXhojOdoV9TsMsiO+9VLC5vAmO8N7/GmXn7yjR8qnA6bVAEzfA==}
+    engines: {node: '>= 0.4'}
+
   is-array-buffer@3.0.4:
     resolution: {integrity: sha512-wcjaerHw0ydZwfhiKbXJWLDY8A7yV7KhjQOpb83hGgGfId/aQa4TOvwyzn2PuswW2gPCYEL/nEAiSVpdOj1lXw==}
     engines: {node: '>= 0.4'}
@@ -3146,6 +3156,9 @@ packages:
 
   url-parse@1.5.10:
     resolution: {integrity: sha512-WypcfiRhfeUP9vvF0j6rw0J3hrWrw6iZv3+22h6iRMJ/8z1Tj6XfLP4DsUix5MhMPnXpiHDoKyoZ/bdCkwBCiQ==}
+
+  util@0.12.5:
+    resolution: {integrity: sha512-kZf/K6hEIrWHI6XqOFUiiMa+79wE/D8Q+NCNAWclkyg3b4d2k7s0QGepNjiABc+aR3N1PAyHL7p6UcLY6LmrnA==}
 
   v8-compile-cache-lib@3.0.1:
     resolution: {integrity: sha512-wa7YjyUGfNZngI/vtK0UHAN+lgDCxBPCylVXGp0zu59Fz5aiGtNXaq3DhIov063MorB+VfufLh3JlF2KdTK3xg==}
@@ -5635,6 +5648,11 @@ snapshots:
       hasown: 2.0.2
       side-channel: 1.0.6
 
+  is-arguments@1.1.1:
+    dependencies:
+      call-bind: 1.0.8
+      has-tostringtag: 1.0.2
+
   is-array-buffer@3.0.4:
     dependencies:
       call-bind: 1.0.8
@@ -6928,6 +6946,14 @@ snapshots:
     dependencies:
       querystringify: 2.2.0
       requires-port: 1.0.0
+
+  util@0.12.5:
+    dependencies:
+      inherits: 2.0.4
+      is-arguments: 1.1.1
+      is-generator-function: 1.0.10
+      is-typed-array: 1.1.13
+      which-typed-array: 1.1.16
 
   v8-compile-cache-lib@3.0.1: {}
 

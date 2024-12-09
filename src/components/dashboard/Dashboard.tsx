@@ -5,7 +5,7 @@ import { styled } from "@mui/material/styles"
 
 import { useDashboard } from "../../global-state/DashboardContext"
 import { useAuth } from "../../global-state/AuthContext"
-import { Destination } from "./Destination"
+import { Destination } from "./destination-card/Destination"
 import { EmptyDashboard } from "./EmptyDashboard"
 
 const StyledDashboardContainer = styled(Box)({

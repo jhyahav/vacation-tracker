@@ -6,9 +6,9 @@ import { Box, Button, TextField } from "@mui/material"
 import { styled } from "@mui/material/styles"
 import AddIcon from "@mui/icons-material/Add"
 
-import { useDashboard } from "../../global-state/DashboardContext"
-import { sanitizeCityName } from "../../utils/sanitizeCityName"
-import { capitalize } from "../../utils/capitalize"
+import { useDashboard } from "../../../global-state/DashboardContext"
+import { sanitizeCityName } from "../../../utils/sanitizeCityName"
+import { capitalize } from "../../../utils/capitalize"
 
 const StyledAddCityContainer = styled(Box)(({ theme }) => ({
   display: "flex",
