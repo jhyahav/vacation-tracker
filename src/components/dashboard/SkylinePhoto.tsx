@@ -19,6 +19,7 @@ export const SkylinePhoto: FC<Props> = ({ cityName }) => {
   return isLoading || !cityName ? (
     <Skeleton
       animation="wave"
+      data-testid="photo-skeleton"
       height={194}
       variant="rectangular"
       width="100%"
