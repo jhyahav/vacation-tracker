@@ -3,8 +3,8 @@ import type { FC } from "react"
 import { Box, CardContent } from "@mui/material"
 import { styled } from "@mui/material/styles"
 
-import { ClockWidget } from "./ClockWidget"
-import { WeatherWidget } from "./WeatherWidget"
+import { ClockWidget } from "./widgets/ClockWidget"
+import { WeatherWidget } from "./widgets/WeatherWidget"
 
 const StyledWeatherTime = styled(Box)({
   display: "flex",

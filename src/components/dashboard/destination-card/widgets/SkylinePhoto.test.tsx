@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react"
 import { toast } from "react-toastify"
-import { useUnsplashPhoto } from "../../hooks/queries/useUnsplashPhoto"
+import { useUnsplashPhoto } from "../../../../hooks/queries/useUnsplashPhoto"
 import { SkylinePhoto } from "./SkylinePhoto"
 
 jest.mock("react-toastify", () => ({

@@ -3,7 +3,7 @@ import { toast } from "react-toastify"
 
 import { CardMedia, Skeleton } from "@mui/material"
 
-import { useUnsplashPhoto } from "../../hooks/queries/useUnsplashPhoto"
+import { useUnsplashPhoto } from "../../../../hooks/queries/useUnsplashPhoto"
 
 type Props = { cityName: string | undefined }
 

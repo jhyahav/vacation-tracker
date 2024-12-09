@@ -1,8 +1,8 @@
 import { render, screen, fireEvent } from "@testing-library/react"
 import { toast } from "react-toastify"
 import { Destination } from "./Destination"
-import { useCityData } from "../../hooks/useCityData"
-import { useDashboard } from "../../global-state/DashboardContext"
+import { useCityData } from "../../../hooks/useCityData"
+import { useDashboard } from "../../../global-state/DashboardContext"
 
 jest.mock("react-toastify", () => ({
   toast: {

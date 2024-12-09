@@ -6,9 +6,9 @@ import { styled } from "@mui/material/styles"
 
 import { DestinationCardContent } from "./DestinationCardContent"
 import { DestinationCardHeader } from "./DestinationCardHeader"
-import { SkylinePhoto } from "./SkylinePhoto"
-import { useCityData } from "../../hooks/useCityData"
-import { useDashboard } from "../../global-state/DashboardContext"
+import { SkylinePhoto } from "./widgets/SkylinePhoto"
+import { useCityData } from "../../../hooks/useCityData"
+import { useDashboard } from "../../../global-state/DashboardContext"
 
 const StyledCard = styled(Card)(({ theme }) => ({
   maxWidth: 345,
